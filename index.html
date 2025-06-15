@@ -1,1 +1,295 @@
-文天玩论坛正在维护中...
+ 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文天玩WenTianPlay论坛官网</title>
+    <style>
+        /* 基础样式 - 深空科技风 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* 粒子背景效果 */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* 标题样式 */
+        .title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #00dbde, #fc00ff, #00dbde);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300% 300%;
+            animation: gradientBG 5s ease infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* 副标题 */
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* 进度指示器 */
+        .progress-container {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            margin: 3rem 0;
+            height: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            border-radius: 30px;
+            width: 75%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: progress-animation 2s ease-in-out infinite alternate;
+        }
+        
+        /* 倒计时 */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 1.5rem;
+            min-width: 100px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .countdown-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* 状态更新 */
+        .status-updates {
+            margin: 2rem 0;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-align: left;
+        }
+        
+        .update-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .update-title::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #00ff9d;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff9d;
+        }
+        
+        .update-content {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        /* 联系方式 */
+        .contact {
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+        
+        /* 动画效果 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes progress-animation {
+            0% { width: 75%; }
+            100% { width: 78%; }
+        }
+        
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .title { font-size: 3.5rem; }
+            .subtitle { font-size: 1.4rem; }
+            .countdown-box { min-width: 80px; padding: 1rem; }
+            .countdown-value { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 动态粒子背景 -->
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <h1 class="title">文天玩论坛升级维护中</h1>
+        <p class="subtitle">我们正在进行重要的系统升级，以提供更快速、更稳定的服务<br>升级期间给您带来的不便，敬请谅解</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="countdown">
+            <div class="countdown-box">
+                <div class="countdown-value">23</div>
+                <div class="countdown-label">小时</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value">59</div>
+                <div class="countdown-label">分钟</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-value">59</div>
+                <div class="countdown-label">秒</div>
+            </div>
+        </div>
+        
+        <div class="status-updates">
+            <h2 class="update-title">当前状态更新</h2>
+            <p class="update-content">
+                ✅ 已完成数据库迁移与优化 (06:30)<br>
+                🚀 服务器配置升级中 (预计08:00完成)<br>
+                🛠️ 新功能模块部署准备 (剩余3个模块)<br>
+                🔒 安全加固与漏洞扫描进行中<br>
+                📊 性能压力测试准备就绪
+            </p>
+        </div>
+        
+        <p class="contact">
+            状态更新: 
+            <a href="#" style="color: #00dbde; text-decoration: none;">@ForumStatus</a>
+        </p>
+    </div>
+    
+    <!-- 粒子动画库 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // 粒子背景配置
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.1, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.05,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out"
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                }
+            }
+        });
+        
+        // 倒计时实时更新
+        function updateCountdown() {
+            const targetDate = new Date();
+            targetDate.setHours(targetDate.getHours() + 23);  // 设置为当前时间+32小时
+            
+            const now = new Date();
+            const diff = targetDate - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.querySelector('.countdown-box:nth-child(1) .countdown-value').textContent = 
+                hours.toString().padStart(2, '0');
+            document.querySelector('.countdown-box:nth-child(2) .countdown-value').textContent = 
+                minutes.toString().padStart(2, '0');
+            document.querySelector('.countdown-box:nth-child(3) .countdown-value').textContent = 
+                seconds.toString().padStart(2, '0');
+        }
+        
+        // 初始化倒计时
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
+ 
