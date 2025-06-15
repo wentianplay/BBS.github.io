@@ -1,248 +1,367 @@
- ﻿<!DOCTYPE html><script>document.addEventListener("contextmenu",function(e) {e.preventDefault();});document.addEventListener("keydown",function(e) {if (e.key === "F12") {e.preventDefault();}});document.addEventListener("copy", function(e){e.preventDefault();});</script><html lang="en"><head><meta charset="UTF-8" /><link rel="shortcut icon" href="https://www.wentianplay.com/index/API/assets/icon.ico" type="image/x-icon"><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="favicon.ico?v=cf816faff5f7d118d871cd8c12a91f16" /><link rel="bookmark" href="favicon.ico?v=cf816faff5f7d118d871cd8c12a91f16" type="image/x-icon" /><meta name="keywords" content="文天玩，文天玩WenTian Play,天彬TianBin,WenTianPlay,文天玩WenTianPlay,WenTian Play,文天玩网络科技有限公司,天彬，天彬星辰，文天星辰，国际战争，文天阁，青云阁，乐言阁，言轩团队，小天工作室，ETB，落丽工作室，小天工作室管理协会，星辰管理协会，文天管理协会，管理协会，天彬"/><meta name="description" content="我们是「天彬TianBin」的制作团队！文天玩WenTianPlay(文天玩网络科技有限公司)建立于2017年3月12日，创立于2024年5月3日，成立于2025年？，我们是一个年轻有活力的团队，致力于二次元ACG文化在各个领域的探索，2024年我们开始着手于AIGC与二次元文化的深度结合，推出WenTianPlay AI原生二次元UCG平台与天彬TianBin二次元游戏等产品。"/> 
-
-<script src="https://www.wentianplay.com/API/op.js">
-</script>
- <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "DataFeed",
-  "name": "文天玩论坛官网",
-  "description": "文天玩WenTianPlay论坛官方网站",
-  "serviceType": "论坛官方网站"
-}
-</script>
-    <title>文天玩WenTianPlay论坛官网</title>
-    <style>
-        /* 基础样式 - 深空科技风 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* 粒子背景效果 */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        /* 主容器 */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        
-        /* 标题样式 */
-        .title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #00dbde, #fc00ff, #00dbde);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            background-size: 300% 300%;
-            animation: gradientBG 5s ease infinite;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        /* 副标题 */
-        .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-        
-        /* 进度指示器 */
-        .progress-container {
-            width: 100%;
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            margin: 3rem 0;
-            height: 20px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-        
-        .progress-bar {
-            background: linear-gradient(90deg, #00c6ff, #0072ff);
-            border-radius: 30px;
-            width: 75%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            animation: progress-animation 2s ease-in-out infinite alternate;
-        }
-        
-        /* 倒计时 */
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .countdown-box {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 15px;
-            padding: 1.5rem;
-            min-width: 100px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        .countdown-value {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .countdown-label {
-            font-size: 1rem;
-            opacity: 0.7;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* 状态更新 */
-        .status-updates {
-            margin: 2rem 0;
-            max-width: 700px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 20px;
-            padding: 1.5rem;
-            text-align: left;
-        }
-        
-        .update-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .update-title::before {
-            content: "";
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #00ff9d;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ff9d;
-        }
-        
-        .update-content {
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-        
-        /* 联系方式 */
-        .contact {
-            margin-top: 2rem;
-            opacity: 0.8;
-        }
-        
-        /* 动画效果 */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes progress-animation {
-            0% { width: 75%; }
-            100% { width: 78%; }
-        }
-        
-        /* 响应式适配 */
-        @media (max-width: 768px) {
-            .title { font-size: 3.5rem; }
-            .subtitle { font-size: 1.4rem; }
-            .countdown-box { min-width: 80px; padding: 1rem; }
-            .countdown-value { font-size: 2rem; }
-        }
-    </style>
-</head>
-<body>
-    <!-- 动态粒子背景 -->
-    <div id="particles-js"></div>
-    
-    <div class="container">
-        <h1 class="title">文天玩论坛升级维护中</h1>
-        <p class="subtitle">我们正在进行重要的系统升级，以提供更快速、更稳定的服务<br>升级期间给您带来的不便，敬请谅解</p>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-   
-    </div>
-    
-    <!-- 粒子动画库 -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="https://www.wentianplay.com/index/API/assets/icon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WenTianPlay论坛官网</title>
+    <meta name="keywords" content="文天玩，文天玩WenTian Play,天彬TianBin,WenTianPlay,文天玩WenTianPlay,WenTian Play,文天玩网络科技有限公司,天彬，天彬星辰，文天星辰，国际战争，文天阁，青云阁，乐言阁，言轩团队，小天工作室，ETB，落丽工作室，小天工作室管理协会，星辰管理协会，文天管理协会，管理协会，天彬"/>
+    <meta name="description" content="我们是「天彬TianBin」的制作团队！文天玩WenTianPlay(文天玩网络科技有限公司)建立于2017年3月12日，创立于2024年5月3日，成立于2025年？，我们是一个年轻有活力的团队，致力于二次元ACG文化在各个领域的探索，2024年我们开始着手于AIGC与二次元文化的深度结合，推出WenTianPlay AI原生二次元UCG平台与天彬TianBin二次元游戏等产品。"/>
     <script>
-        // 粒子背景配置
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.1, random: true },
-                size: { value: 3, random: true },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: "#ffffff",
-                    opacity: 0.05,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out"
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "repulse" },
-                    onclick: { enable: true, mode: "push" },
-                    resize: true
+        document.addEventListener("contextmenu", function(e) {e.preventDefault();});
+        document.addEventListener("keydown", function(e) {if (e.key === "F12") {e.preventDefault();}});
+        document.addEventListener("copy", function(e) {e.preventDefault();});
+    </script>
+    <script src="./API/op.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DataFeed",
+      "name": "文天玩国际官网",
+      "description": "文天玩WenTianPlay国际官方网站",
+      "serviceType": "游戏国际官方网站"
+    }
+    </script>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C5CE7',
+                        secondary: '#00CEFF',
+                        accent: '#FC5C65',
+                        dark: '#2D3436',
+                        light: '#F7F7F7'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { textShadow: '0 0 5px #fff, 0 0 10px #fff, 0 0 15px #6C5CE7, 0 0 20px #6C5CE7' },
+                            '100%': { textShadow: '0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00CEFF, 0 0 40px #00CEFF' }
+                        }
+                    }
                 }
             }
         }
     </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .bg-gradient-rainbow {
+                background: linear-gradient(90deg, #6C5CE7, #00CEFF, #FC5C65, #6C5CE7);
+                background-size: 400% 400%;
+                animation: gradient 15s ease infinite;
+            }
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+            }
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="font-inter bg-dark text-light min-h-screen flex flex-col items-center justify-center overflow-hidden relative">
+    <!-- Background elements -->
+    <div class="absolute inset-0 bg-gradient-to-b from-primary/20 to-dark z-0"></div>
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+        <div class="absolute top-[10%] left-[5%] w-40 h-40 rounded-full bg-secondary/30 filter blur-3xl animate-pulse-slow"></div>
+        <div class="absolute top-[30%] right-[10%] w-60 h-60 rounded-full bg-primary/20 filter blur-3xl animate-pulse-slow" style="animation-delay: 1s"></div>
+        <div class="absolute bottom-[20%] left-[20%] w-52 h-52 rounded-full bg-accent/20 filter blur-3xl animate-pulse-slow" style="animation-delay: 2s"></div>
+    </div>
+    
+    <!-- Floating particles -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <div class="absolute top-[15%] left-[15%] w-3 h-3 rounded-full bg-white/30 animate-float" style="animation-delay: 0.5s"></div>
+        <div class="absolute top-[25%] right-[25%] w-4 h-4 rounded-full bg-primary/40 animate-float" style="animation-delay: 1.2s"></div>
+        <div class="absolute bottom-[35%] left-[30%] w-2 h-2 rounded-full bg-secondary/30 animate-float" style="animation-delay: 0.8s"></div>
+        <div class="absolute bottom-[20%] right-[15%] w-3 h-3 rounded-full bg-accent/30 animate-float" style="animation-delay: 1.5s"></div>
+        <div class="absolute top-[40%] left-[40%] w-2 h-2 rounded-full bg-white/30 animate-float" style="animation-delay: 2s"></div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="container mx-auto px-4 py-8 z-10 max-w-4xl">
+        <!-- Logo -->
+        <div class="text-center mb-10">
+            <div class="inline-block bg-gradient-rainbow text-transparent bg-clip-text text-[clamp(2.5rem,5vw,4rem)] font-bold mb-4 animate-glow">
+                WenTianPlay
+            </div>
+            <p class="text-xl text-light/80 mb-2">文天玩论坛</p>
+            <p class="text-light/60 text-sm">WenTianPlay Forum</p>
+        </div>
+        
+        <!-- Language selector -->
+        <div class="flex justify-center mb-8 space-x-4">
+            <button id="lang-zh-cn" class="px-4 py-2 rounded-full bg-primary/20 hover:bg-primary/40 transition-all duration-300 active-lang text-white font-medium">简体中文</button>
+            <button id="lang-zh-tw" class="px-4 py-2 rounded-full bg-dark/50 hover:bg-primary/40 transition-all duration-300 text-white/70 font-medium">繁體中文</button>
+            <button id="lang-en" class="px-4 py-2 rounded-full bg-dark/50 hover:bg-primary/40 transition-all duration-300 text-white/70 font-medium">English</button>
+        </div>
+        
+        <!-- Maintenance message -->
+        <div class="glass-effect rounded-2xl p-8 md:p-12 shadow-2xl mb-8">
+            <div id="message-zh-cn" class="text-center">
+                <div class="text-5xl md:text-6xl mb-6">
+                    <i class="fa fa-wrench text-primary animate-spin"></i>
+                </div>
+                <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4 text-white">论坛维护中</h1>
+                <p class="text-xl mb-6 text-white/80">我们正在进行重要的系统升级，以提供更好的服务体验</p>
+                <p class="text-lg mb-8 text-white/70">预计维护时间：<span id="maintenance-time" class="text-secondary font-medium">4小时</span></p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="days">00</div>
+                        <div class="text-sm text-white/60">天</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="hours">04</div>
+                        <div class="text-sm text-white/60">时</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="minutes">00</div>
+                        <div class="text-sm text-white/60">分</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="seconds">00</div>
+                        <div class="text-sm text-white/60">秒</div>
+                    </div>
+                </div>
+                
+                <p class="text-white/60 mb-6">给您带来的不便，我们深表歉意，感谢您的耐心等待</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="px-6 py-3 bg-primary hover:bg-primary/80 rounded-full font-medium transition-all duration-300 shadow-lg shadow-primary/20 flex items-center">
+                        <i class="fa fa-weibo mr-2"></i> 微博公告
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-dark hover:bg-dark/80 border border-white/20 rounded-full font-medium transition-all duration-300 flex items-center">
+                        <i class="fa fa-qq mr-2"></i> QQ群
+                    </a>
+                </div>
+            </div>
+            
+            <div id="message-zh-tw" class="text-center hidden">
+                <div class="text-5xl md:text-6xl mb-6">
+                    <i class="fa fa-wrench text-primary animate-spin"></i>
+                </div>
+                <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4 text-white">論壇維護中</h1>
+                <p class="text-xl mb-6 text-white/80">我們正在進行重要的系統升級，以提供更好的服務體驗</p>
+                <p class="text-lg mb-8 text-white/70">預計維護時間：<span id="maintenance-time-tw" class="text-secondary font-medium">4小時</span></p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="days-tw">00</div>
+                        <div class="text-sm text-white/60">天</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="hours-tw">04</div>
+                        <div class="text-sm text-white/60">時</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="minutes-tw">00</div>
+                        <div class="text-sm text-white/60">分</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="seconds-tw">00</div>
+                        <div class="text-sm text-white/60">秒</div>
+                    </div>
+                </div>
+                
+                <p class="text-white/60 mb-6">給您帶來的不便，我們深表歉意，感謝您的耐心等待</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="px-6 py-3 bg-primary hover:bg-primary/80 rounded-full font-medium transition-all duration-300 shadow-lg shadow-primary/20 flex items-center">
+                        <i class="fa fa-weibo mr-2"></i> 微博公告
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-dark hover:bg-dark/80 border border-white/20 rounded-full font-medium transition-all duration-300 flex items-center">
+                        <i class="fa fa-qq mr-2"></i> QQ群
+                    </a>
+                </div>
+            </div>
+            
+            <div id="message-en" class="text-center hidden">
+                <div class="text-5xl md:text-6xl mb-6">
+                    <i class="fa fa-wrench text-primary animate-spin"></i>
+                </div>
+                <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4 text-white">Forum Under Maintenance</h1>
+                <p class="text-xl mb-6 text-white/80">We're performing important system upgrades to provide a better service experience</p>
+                <p class="text-lg mb-8 text-white/70">Estimated maintenance time: <span id="maintenance-time-en" class="text-secondary font-medium">4 hours</span></p>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="days-en">00</div>
+                        <div class="text-sm text-white/60">Days</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="hours-en">04</div>
+                        <div class="text-sm text-white/60">Hours</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="minutes-en">00</div>
+                        <div class="text-sm text-white/60">Minutes</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1" id="seconds-en">00</div>
+                        <div class="text-sm text-white/60">Seconds</div>
+                    </div>
+                </div>
+                
+                <p class="text-white/60 mb-6">We apologize for the inconvenience and thank you for your patience</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="px-6 py-3 bg-primary hover:bg-primary/80 rounded-full font-medium transition-all duration-300 shadow-lg shadow-primary/20 flex items-center">
+                        <i class="fa fa-weibo mr-2"></i> Weibo Announcement
+                    </a>
+                    <a href="#" class="px-6 py-3 bg-dark hover:bg-dark/80 border border-white/20 rounded-full font-medium transition-all duration-300 flex items-center">
+                        <i class="fa fa-qq mr-2"></i> QQ Group
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="text-center text-white/40 text-sm">
+            <p>© 2025 WenTianPlay. All rights reserved.</p>
+            <p class="mt-2">文天玩网络科技有限公司</p>
+        </div>
+    </div>
+    
+    <script>
+        // Language switcher
+        document.getElementById('lang-zh-cn').addEventListener('click', function() {
+            setActiveLanguage('zh-cn');
+        });
+        
+        document.getElementById('lang-zh-tw').addEventListener('click', function() {
+            setActiveLanguage('zh-tw');
+        });
+        
+        document.getElementById('lang-en').addEventListener('click', function() {
+            setActiveLanguage('en');
+        });
+        
+        function setActiveLanguage(lang) {
+            // Update language buttons
+            document.getElementById('lang-zh-cn').classList.remove('active-lang', 'bg-primary/20');
+            document.getElementById('lang-zh-cn').classList.add('bg-dark/50', 'text-white/70');
+            
+            document.getElementById('lang-zh-tw').classList.remove('active-lang', 'bg-primary/20');
+            document.getElementById('lang-zh-tw').classList.add('bg-dark/50', 'text-white/70');
+            
+            document.getElementById('lang-en').classList.remove('active-lang', 'bg-primary/20');
+            document.getElementById('lang-en').classList.add('bg-dark/50', 'text-white/70');
+            
+            document.getElementById('lang-' + lang).classList.add('active-lang', 'bg-primary/20');
+            document.getElementById('lang-' + lang).classList.remove('bg-dark/50', 'text-white/70');
+            
+            // Show/hide language content
+            document.getElementById('message-zh-cn').classList.add('hidden');
+            document.getElementById('message-zh-tw').classList.add('hidden');
+            document.getElementById('message-en').classList.add('hidden');
+            
+            document.getElementById('message-' + lang).classList.remove('hidden');
+        }
+        
+        // Countdown timer
+        function updateCountdown() {
+            // Set the end date (4 hours from now)
+            const endDate = new Date();
+            endDate.setHours(endDate.getHours() + 4);
+            
+            // Update every second
+            const timer = setInterval(function() {
+                const now = new Date();
+                const diff = endDate - now;
+                
+                if (diff <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    
+                    document.getElementById('days-tw').textContent = '00';
+                    document.getElementById('hours-tw').textContent = '00';
+                    document.getElementById('minutes-tw').textContent = '00';
+                    document.getElementById('seconds-tw').textContent = '00';
+                    
+                    document.getElementById('days-en').textContent = '00';
+                    document.getElementById('hours-en').textContent = '00';
+                    document.getElementById('minutes-en').textContent = '00';
+                    document.getElementById('seconds-en').textContent = '00';
+                    
+                    return;
+                }
+                
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                document.getElementById('days-tw').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours-tw').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes-tw').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds-tw').textContent = seconds.toString().padStart(2, '0');
+                
+                document.getElementById('days-en').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours-en').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes-en').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds-en').textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+        
+        // Initialize countdown
+        updateCountdown();
+        
+        // Add animation to elements on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.glass-effect, .container > div:not(.glass-effect)');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 + (index * 150));
+            });
+        });
+    </script>
 </body>
 </html>
- 
+    
