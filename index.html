@@ -241,31 +241,7 @@
                     resize: true
                 }
             }
-        });
-        
-        // 倒计时实时更新
-        function updateCountdown() {
-            const targetDate = new Date();
-            targetDate.setHours(targetDate.getHours() + 23);  // 设置为当前时间+32小时
-            
-            const now = new Date();
-            const diff = targetDate - now;
-            
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.querySelector('.countdown-box:nth-child(1) .countdown-value').textContent = 
-                hours.toString().padStart(2, '0');
-            document.querySelector('.countdown-box:nth-child(2) .countdown-value').textContent = 
-                minutes.toString().padStart(2, '0');
-            document.querySelector('.countdown-box:nth-child(3) .countdown-value').textContent = 
-                seconds.toString().padStart(2, '0');
         }
-        
-        // 初始化倒计时
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>
