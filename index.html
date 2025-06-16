@@ -1,39 +1,15 @@
  
 <!DOCTYPE html>
- <script>
-        document.addEventListener("contextmenu", function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "F12") {
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener("copy", function(e) {
-            e.preventDefault();
-        });
-    </script>
- 
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="https://www.wentianplay.com/index/API/assets/icon.ico" type="image/x-icon">
-       <title>文天玩WenTianPlay论坛官网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="https://www.wentianplay.com/index/API/assets/icon.ico" type="image/x-icon">
+    <title>文天玩WenTianPlay论坛官网</title>
     <meta name="keywords" content="文天玩，文天玩WenTian Play,天彬TianBin,WenTianPlay,文天玩WenTianPlay,WenTian Play,文天玩网络科技有限公司,天彬，天彬星辰，文天星辰，国际战争，文天阁，青云阁，乐言阁，言轩团队，小天工作室，ETB，落丽工作室，小天工作室管理协会，星辰管理协会，文天管理协会，管理协会，天彬"/>
     <meta name="description" content="我们是「天彬TianBin」的制作团队！文天玩WenTianPlay(文天玩网络科技有限公司)建立于2017年3月12日，创立于2024年5月3日，成立于2025年？，我们是一个年轻有活力的团队，致力于二次元ACG文化在各个领域的探索，2024年我们开始着手于AIGC与二次元文化的深度结合，推出WenTianPlay AI原生二次元UCG平台与天彬TianBin二次元游戏等产品。"/>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-        }
-        
+    <style>
         :root {
             --primary: #6a11cb;
             --secondary: #2575fc;
@@ -41,27 +17,33 @@
             --light: #ffffff;
             --dark: #121212;
             --success: #00c9a7;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.1);
         }
-        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
         body {
-            overflow: hidden;
+            overflow-x: hidden;
             min-height: 100vh;
             background: linear-gradient(135deg, var(--dark), #1a1a2e, #16213e);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: var(--light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             position: relative;
         }
-        
+
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
+
         .particles {
             position: absolute;
             top: 0;
@@ -69,15 +51,16 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            pointer-events: none;
         }
-        
+
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.25);
             animation: float 15s infinite linear;
         }
-        
+
         /* Particle animation */
         @keyframes float {
             0% {
@@ -95,63 +78,126 @@
                 opacity: 0;
             }
         }
-        
-        .container {
+
+        /* Header Styles */
+        .header {
             position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
+            z-index: 100;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(18, 18, 18, 0.8);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .logo {
             display: flex;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
+            align-items: center;
+            gap: 0.75rem;
         }
-        
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .logo-text {
-            font-size: 4rem;
-            font-weight: 800;
+            font-size: 1.4rem;
+            font-weight: 700;
             background: linear-gradient(45deg, var(--accent), var(--secondary), var(--success));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             text-shadow: 0 0 20px rgba(255, 45, 117, 0.3);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 101;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .nav-link:hover {
+            color: var(--light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
             position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            width: 90%;
+            margin: 2rem auto;
+            padding: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
-        .logo-text::after {
-            content: "⚡";
-            position: absolute;
-            top: -10px;
-            right: -45px;
-            font-size: 2.5rem;
-            filter: drop-shadow(0 0 10px rgba(255, 217, 0, 0.8));
-            animation: lightning 3s infinite;
+
+        .main-title {
+            font-size: 2.8rem;
+            margin: 2rem 0 1rem;
+            background: linear-gradient(to right, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
         }
-        
-        @keyframes lightning {
-            0%, 100% { opacity: 0; transform: scale(1); }
-            5%, 10% { opacity: 1; transform: scale(1.5); }
-            15% { opacity: 0; transform: scale(1); }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 800px;
+            line-height: 1.7;
         }
-        
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
         .status-card {
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-border);
             border-radius: 20px;
             padding: 2.5rem;
             margin: 2rem 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            max-width: 800px;
         }
-        
+
         .status-card::before {
             content: "";
             position: absolute;
@@ -159,44 +205,18 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
             animation: rotate 20s linear infinite;
             z-index: -1;
         }
-        
+
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--light), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 5px 15px rgba(37, 117, 252, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-        
-        .highlight {
-            color: var(--accent);
-            font-weight: 700;
-        }
-        
+
         .progress-container {
             width: 100%;
-            max-width: 600px;
             height: 20px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
@@ -205,7 +225,7 @@
             position: relative;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .progress-bar {
             height: 100%;
             width: 65%;
@@ -214,12 +234,12 @@
             position: relative;
             animation: progress 2s ease-in-out infinite alternate;
         }
-        
+
         @keyframes progress {
             from { width: 60%; }
             to { width: 70%; }
         }
-        
+
         .progress-bar::after {
             content: "";
             position: absolute;
@@ -230,27 +250,28 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             animation: shine 2s infinite;
         }
-        
+
         @keyframes shine {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
-        
+
         .status-info {
             display: flex;
             justify-content: space-between;
-            max-width: 600px;
             margin: 1rem auto 2.5rem;
             font-size: 1.1rem;
         }
-        
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
+            width: 100%;
+            max-width: 1000px;
         }
-        
+
         .feature-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
@@ -259,39 +280,41 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         .feature-icon {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--secondary);
             text-shadow: 0 0 15px rgba(37, 117, 252, 0.5);
         }
-        
+
         .feature-title {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: var(--light);
         }
-        
+
         .feature-desc {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.75);
             line-height: 1.6;
+            font-size: 1rem;
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             margin: 2.5rem 0;
             flex-wrap: wrap;
+            width: 100%;
         }
-        
+
         .social-link {
             display: flex;
             align-items: center;
@@ -306,110 +329,186 @@
             border: 2px solid transparent;
             text-decoration: none;
         }
-        
+
         .social-link:hover {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             transform: translateY(-5px);
             border-color: rgba(255, 255, 255, 0.2);
             box-shadow: 0 5px 15px rgba(37, 117, 252, 0.4);
         }
-        
+
         .copyright {
             margin-top: 2rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1rem;
+            width: 100%;
+            padding: 0 1rem;
+            text-align: center;
         }
-        
+
         .team {
             color: var(--accent);
             font-weight: 600;
         }
-        
-        /* 响应式样式 */
+
+        /* 响应式样式 - 平板 */
         @media (max-width: 992px) {
-            .logo-text {
-                font-size: 3.5rem;
+            .main-title {
+                font-size: 2.4rem;
             }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
+
             .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .logo-text {
                 font-size: 1.3rem;
             }
+
+            .status-card {
+                padding: 2rem;
+            }
+
+            .feature-icon {
+                font-size: 2.8rem;
+            }
         }
-        
+
+        /* 响应式样式 - 大屏手机 */
         @media (max-width: 768px) {
             .container {
+                padding: 0.5rem;
+            }
+
+            .main-title {
+                font-size: 2.2rem;
+                margin-top: 1.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .status-card {
                 padding: 1.5rem;
             }
-            
-            .logo-text {
-                font-size: 3rem;
+
+            .nav-toggle {
+                display: block;
             }
-            
-            h1 {
-                font-size: 2rem;
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(18, 18, 18, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.4s ease;
+                z-index: 100;
             }
-            
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .status-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* 响应式样式 - 手机 */
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.9rem;
+                margin-top: 1rem;
+            }
+
             .subtitle {
-                font-size: 1.15rem;
+                font-size: 1rem;
+                padding: 0 0.5rem;
             }
-            
+
+            .logo-text {
+                font-size: 1.2rem;
+            }
+
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+            }
+
             .status-card {
-                padding: 1.8rem;
+                padding: 1.5rem 1rem;
+                margin: 1.5rem 0;
             }
-            
+
+            .progress-container {
+                margin: 2rem auto;
+            }
+
+            .status-info {
+                font-size: 1rem;
+                margin: 0.5rem auto 1.5rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
             .feature-icon {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
             }
-            
+
             .feature-title {
                 font-size: 1.3rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 2.5rem;
-            }
-            
-            .logo-text::after {
-                font-size: 2rem;
-                right: -35px;
-                top: -5px;
-            }
-            
-            h1 {
-                font-size: 1.7rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            .status-card {
-                padding: 1.5rem;
-            }
-            
-            .status-info {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-            
+
             .social-link {
                 width: 50px;
                 height: 50px;
                 font-size: 1.5rem;
             }
+
+            .copyright {
+                font-size: 0.9rem;
+            }
         }
-        
+
+        /* 超小屏幕设备 */
+        @media (max-width: 360px) {
+            .main-title {
+                font-size: 1.7rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.4rem;
+            }
+        }
+
         /* 动画效果 */
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -419,35 +518,55 @@
     </style>
 </head>
 <body>
-    <!-- 动态粒子背景 -->
-    <div class="particles" id="particles"></div>
-    
-    <div class="container">
+    <!-- 页眉区域 -->
+    <header class="header">
         <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-gamepad"></i>
+            </div>
             <div class="logo-text">文天玩WenTianPlay</div>
         </div>
         
-        <h1>论坛升级维护中</h1>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
         
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#" class="nav-link">首页</a></li>
+                <li><a href="#" class="nav-link">关于我们</a></li>
+                <li><a href="#" class="nav-link">游戏产品</a></li>
+                <li><a href="#" class="nav-link">AI平台</a></li>
+                <li><a href="#" class="nav-link">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 动态粒子背景 -->
+    <div class="particles" id="particles"></div>
+
+    <main class="container">
+        <h1 class="main-title">论坛升级维护中</h1>
+
         <div class="subtitle">
             我们正在对<span class="highlight">文天玩WenTianPlay论坛</span>进行系统升级与优化，
             为您带来更加炫酷的<span class="highlight">AIGC原生二次元UCG平台</span>
             和更流畅的<span class="highlight">天彬TianBin二次元游戏</span>体验！
         </div>
-        
+
         <div class="status-card">
             <div class="progress-container">
                 <div class="progress-bar"></div>
             </div>
-            
+
             <div class="status-info">
                 <span>维护进度: 65%</span>
                 <span>预计完成: 2025年</span>
             </div>
-            
+
             <p>在此期间，您可以关注我们的社交媒体获取最新动态</p>
         </div>
-        
+
         <div class="features">
             <div class="feature-card">
                 <div class="feature-icon">
@@ -456,7 +575,7 @@
                 <h3 class="feature-title">天彬TianBin游戏</h3>
                 <p class="feature-desc">融合二次元文化与AIGC技术的创新游戏体验</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-robot"></i>
@@ -464,7 +583,7 @@
                 <h3 class="feature-title">AI原生平台</h3>
                 <p class="feature-desc">WenTianPlay AI驱动的二次元内容创作平台</p>
             </div>
-            
+
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-users"></i>
@@ -473,7 +592,7 @@
                 <p class="feature-desc">加入文天玩团队，共创未来</p>
             </div>
         </div>
-        
+
         <div class="social-links">
             <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
             <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
@@ -481,48 +600,86 @@
             <a href="#" class="social-link"><i class="fab fa-github"></i></a>
             <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
         </div>
-        
+
         <div class="copyright">
             © 2024 文天玩网络科技有限公司 | <span class="team">天彬TianBin制作团队</span>
         </div>
-    </div>
+    </main>
 
     <script>
         // 创建动态粒子效果
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-            
+            // 根据屏幕尺寸调整粒子数量
+            const particleCount = window.innerWidth < 768 ? 30 : 50;
+            particlesContainer.innerHTML = '';
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
+
                 // 随机大小（1px 到 4px）
                 const size = Math.random() * 3 + 1;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                
+
                 // 随机位置
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-                
+
                 // 随机动画延迟和持续时间
                 const delay = Math.random() * 10;
                 const duration = Math.random() * 10 + 10;
-                
+
                 particle.style.animationDelay = `${delay}s`;
                 particle.style.animationDuration = `${duration}s`;
-                
+
                 // 设置CSS变量用于动画
                 particle.style.setProperty('--x', Math.random());
-                
+
                 particlesContainer.appendChild(particle);
             }
         }
+
+        // 导航切换功能
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
         
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
         // 页面加载完成后初始化
         window.addEventListener('DOMContentLoaded', () => {
             createParticles();
+            
+            // 窗口大小改变时重新生成粒子
+            window.addEventListener('resize', createParticles);
+        });
+        
+        // 禁止右键菜单
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        // 禁止F12键
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12") {
+                e.preventDefault();
+            }
+        });
+
+        // 禁止复制
+        document.addEventListener("copy", function(e) {
+            e.preventDefault();
         });
     </script>
 </body>
