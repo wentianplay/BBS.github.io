@@ -2,22 +2,22 @@
     {
         "title": "这是第一条新闻标题",
         "excerpt": "这是新闻摘要内容，简要介绍新闻的主要内容...",
-        "filePath": "news1.html",
-        "imagePath": "images/news1.jpg",
+        "filePath": "./Web/1.html",
+        "imagePath": "images/1.jpg",
         "updateTime": "2023-10-15T14:30:00"
     },
     {
         "title": "这是第二条新闻标题",
         "excerpt": "这是另一条新闻的摘要内容，简要介绍新闻的主要内容...",
-        "filePath": "news2.html",
-        "imagePath": "images/news2.jpg",
+        "filePath": "./Web/2.html",
+        "imagePath": "images/2.jpg",
         "updateTime": "2023-10-15T10:15:00"
     },
     {
         "title": "这是第三条新闻标题",
         "excerpt": "这是第三条新闻的摘要内容，简要介绍新闻的主要内容...",
-        "filePath": "news3.html",
-        "imagePath": "images/news3.jpg",
+        "filePath": "./Web/3.html",
+        "imagePath": "images/3.jpg",
         "updateTime": "2023-10-14T09:45:00"
     }
 ]
