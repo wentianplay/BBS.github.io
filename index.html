@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新闻快闻 - 最新资讯实时更新</title>
+    <title>文天玩WenTianPlay - 新闻资讯</title>
     <style>
         * {
             margin: 0;
@@ -143,7 +143,7 @@
     
     <header>
         <div class="container">
-            <h1>新闻快闻</h1>
+            <h1>新闻咨讯</h1>
             <p class="subtitle">最新资讯，实时更新</p>
         </div>
     </header>
@@ -159,7 +159,7 @@
         fetch('jk.json')
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('网络响应不正常');
+                    throw new Error('网络响应不正常，请稍后尝试。');
                 }
                 return response.json();
             })
