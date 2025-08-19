@@ -1,1 +1,135 @@
 这里是调试用的
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文天玩WenTianPlay - 新闻资讯</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .news-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin: 30px 0;
+        }
+        
+        .news-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #1a0dab;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .news-content {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .news-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+        
+        .id-code {
+            text-align: center;
+            font-size: 16px;
+            color: #70757a;
+            padding: 15px;
+            border-top: 1px solid #eaeaea;
+            margin-top: 30px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .nav-links a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #e8f0fe;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .news-container {
+                padding: 25px;
+            }
+            
+            .news-title {
+                font-size: 26px;
+            }
+            
+            .news-content {
+                font-size: 16px;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航链接 -->
+    <div class="nav-links">
+        <a href="https://www.wentianplay.top/">返回首页</a>
+        <a href="https://www.wentianplay.com/">文天玩</a>
+    </div>
+    
+    <!-- 新闻内容 -->
+    <div class="news-container">
+        <h1 class="news-title">人工智能在医疗领域取得重大突破</h1>
+        
+        <div class="news-content">
+            <p>近日，国际研究团队宣布在AI辅助医疗诊断方面取得重大突破。新开发的深度学习算法在早期癌症筛查中的准确率达到了98.7%，远超传统诊断方法。该技术预计将在明年投入临床使用，有望大幅提高癌症早期发现率。</p>
+            
+            <p>这项名为DeepMedScan的技术通过分析医学影像数据，能够识别出人类肉眼难以察觉的微小病变。研究团队负责人李博士表示："我们的算法在数千例临床数据测试中表现出色，特别是在肺癌和乳腺癌的早期筛查方面，准确率比现有方法提高了30%以上。"</p>
+            
+            <p>DeepMedScan系统采用了创新的三维卷积神经网络架构，能够同时处理多个层面的影像数据。系统在训练过程中使用了超过50万份匿名医学影像数据，涵盖了各种病例和健康样本。</p>
+            
+            <p>除了癌症筛查，该系统还展现出在心血管疾病诊断方面的潜力。在冠状动脉疾病的检测中，其准确率达到了96.2%，误诊率仅为1.3%。</p>
+            
+            <p>目前，研究团队正在与多家医院合作，进行更大规模的临床试验。预计该系统将在2026年初获得医疗监管机构的批准，首批将应用于大型医院的影像诊断中心。</p>
+        </div>
+        
+        <div class="id-code">识别码：彬0000000000000001号</div>
+    </div>
+</body>
+</html>
