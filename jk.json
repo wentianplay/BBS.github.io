@@ -1,10 +1,10 @@
 [
     {
-        "title": "这是第一条新闻标题",
-        "excerpt": "这是新闻摘要内容，简要介绍新闻的主要内容...",
+        "title": "顺其自然，顺其志愿。",
+        "excerpt": "发布人:李文飞",
         "filePath": "./s/1.html",
         "imagePath": "images/1.jpg",
-        "updateTime": "2023-10-15T14:30:00"
+        "updateTime": "2025-03-31T22:30:56"
     },
     {
         "title": "这是第二条新闻标题",
@@ -22,7 +22,7 @@
     },
     {
         "title": "文天玩官方权威域名",
-        "excerpt": "这是文天玩官方权威域名的摘要内容，简要介绍新闻的主要内容...",
+        "excerpt": "发布人:李文飞",
         "filePath": "./s/0.html",
         "imagePath": "images/0.jpg",
         "updateTime": "2025-08-19T10:15:00"
