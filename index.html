@@ -134,31 +134,7 @@
             }
         }
     </style>
-<script>
-        // 检测控制台是否被打开
-        (function() {
-            const originalLog = console.log;
-            console.log = function() {
-                // 当控制台被打开并执行 log 时触发跳转（部分浏览器适用）
-                window.location.href = "https://www.wentianplay.com/";
-                originalLog.apply(console, arguments);
-            };
 
-            // 另一种检测方式：利用开发者工具打开时的尺寸变化
-            const checkConsole = setInterval(function() {
-                const dummy = new Date();
-                console.profile(dummy);
-                console.profileEnd(dummy);
-                if (console.clear) console.clear();
-                // 若检测到控制台打开，执行跳转
-                if (window.outerWidth - window.innerWidth > 160 || 
-                    window.outerHeight - window.innerHeight > 160) {
-                    window.location.href = "https://www.wentianplay.com/";
-                    clearInterval(checkConsole);
-                }
-            }, 1000);
-        })();
-    </script>
 </head>
 <body>
     <!-- 公告区域 -->
