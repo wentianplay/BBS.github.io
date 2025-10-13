@@ -2,6 +2,21 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+  <script>
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "F12") {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener("copy", function(e) {
+            e.preventDefault();
+        });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="57">
     <title>文天玩WenTianPlay | 新闻资讯</title>
