@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《天彬TianBIN》游戏小说共同框架官网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1f0a 0%, #051105 100%);
+            color: #e6ffe6;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(10, 130, 50, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(20, 200, 80, 0.1) 0%, transparent 25%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 头部导航 */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(50, 205, 50, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #32cd32;
+            text-shadow: 0 0 15px rgba(50, 205, 50, 0.7);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(20, 100, 40, 0.5);
+            color: #b3ffb3;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(50, 205, 50, 0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        .back-home:hover {
+            background: rgba(50, 205, 50, 0.8);
+            color: #0a1f0a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(50, 205, 50, 0.7);
+        }
+
+        /* 主标题样式 */
+        .news-title {
+            font-size: 3.2rem;
+            text-align: center;
+            margin: 40px 0 50px;
+            color: #a0ffa0;
+            text-shadow: 0 0 10px rgba(50, 205, 50, 0.8);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .news-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #32cd32, transparent);
+            border-radius: 50%;
+        }
+
+        /* 内容区域 */
+        .news-content {
+            background: rgba(10, 40, 15, 0.6);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            border: 1px solid rgba(50, 205, 50, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 15, 5, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0c6, #32, #0c6, #32cd32, #0c6);
+        }
+
+        .news-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 25px 0;
+            padding: 20px;
+            border-left: 3px solid #32cd32;
+            background: rgba(8, 30, 10, 0.4);
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .news-content p:hover {
+            background: rgba(15, 60, 20, 0.5);
+            transform: translateX(5px);
+            border-left: 3px solid #a0ffa0;
+        }
+
+        .news-content p::before {
+            content: '»';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #32cd32;
+            font-size: 24px;
+        }
+
+        /* 上线信息卡片 */
+        .acquisition-card {
+            background: linear-gradient(135deg, rgba(15, 70, 25, 0.8), rgba(8, 40, 15, 0.9));
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            border: 1px solid rgba(50, 205, 50, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 20, 5, 0.6);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .acquisition-card i {
+            font-size: 50px;
+            color: #32cd32;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            color: #a0ffa0;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .card-content li {
+            margin: 8px 0;
+            color: #c0ffc0;
+        }
+
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(50, 205, 50, 0.3);
+            color: #90e090;
+            font-size: 0.9rem;
+        }
+
+        /* 新增价格标签样式 */
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ff9800);
+            color: #1a1a00;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 0 5px;
+            box-shadow: 0 3px 10px rgba(255, 152, 0, 0.4);
+        }
+
+        /* 新增玩家评论样式 */
+        .player-comment {
+            background: rgba(30, 70, 30, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #ffd700;
+        }
+
+        .player-comment p {
+            font-style: italic;
+            margin: 10px 0;
+            color: #d0ffd0;
+        }
+
+        .player-name {
+            text-align: right;
+            color: #ff right;
+            color: #ffd700;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* 动画效果 */
+        @keyframes pulse {
+            0% { text-shadow: 0 0 10px rgba(50, 205, 50, 0.7); }
+            50% { text-shadow: 0 0 20px rgba(50, 205, 50, 1), 0 0 30px rgba(50, 205, 50, 0.8); }
+            100% { text-shadow: 0 0 10px rgba(50, 205, 50, 0.7); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .news-title {
+                font-size: 2.5rem;
+            }
+
+            .news-content {
+                padding: 25px 15px;
+            }
+
+            .acquisition-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .news-title {
+                font-size: 2rem;
+            }
+
+            .news-content p {
+                font-size: 1.1rem;
+                padding: 15px 10px 15px 15px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部导航 -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-globe-asia"></i>
+                <span>文天玩新闻资讯</span>
+            </div>
+            <a href="../index.html" class="back-home">
+                <i class="fas fa-home"></i>
+                返回主页
+            </a>
+        </div>
+
+        <!-- 新闻标题 -->
+        <h1 class="news-title">《天彬TianBIN》游戏小说共同框架官网</h1>
+
+        <!-- 新闻内容 -->
+        <div class="news-content
+            <h2>《天彬TianBIN》游戏世界观深度解析</h2>
+
+                <h3>修真与科技的完美融合</h3>
+                <p>《天彬TianBIN》创造性地将东方修真体系与未来科技文明融合在同一个宇宙中，形成了独特的"玄科双生"世界观。玩家可以自由选择成为掌控天地之力的玄士，或是驾驭机械智慧的科士，亦或是探索双修之道的跨界者。</p>
+
+                <h3>表里世界的动态平衡</h3>
+                <p>游戏世界分为表世界和里世界。表世界由人、妖、魔三族生活，里世界则受邪魔支配。两个世界相互影响，形成动态平衡系统。玩家的行为会影响两个世界的平衡状态，从而改变游戏环境。</p>
+
+                <h3>核心游戏系统</h3>
+                <ul>
+                    <li><strong>修真系统</strong>：包含灵气修炼、功法学习、炼丹炼器、渡劫飞升等传统修真元素，结合现代游戏机制进行创新设计。</li>
+                    <li><strong>科技系统</strong>：提供机甲组装、人工智能、星际科技、基因改造等科技玩法，让玩家体验未来科技的魅力。</li>
+                    <li><strong>双修系统</strong>：独特的跨界玩法，修真者可以学习科技知识，科技者可以修炼灵气，创造全新的战斗和生活方式。</li>
+                    <li><strong>沙盒世界</strong>：开放的游戏世界，玩家可以自由探索、建造基地、发展势力，影响游戏世界的政治经济格局。</li>
+                </ul>
+
+                <h3>游戏特色</h3>
+                <p>《天彬TianBIN》采用横版2.5D俯视角，结合精美的二次元美术风格，呈现独特的视觉体验。游戏强调策略与养成的结合，玩家需要经营自己的角色、基地和势力，在双世界中寻求发展之道。</p>
+
+                <h3>故事背景</h3>
+                <p>在遥远的未来，修真文明与科技文明意外碰撞，形成了独特的双生世界。玩家将扮演一名探险者，追寻远古之谜，揭开星辰背后的真相。在战争与和平的摇摆中，你的选择将决定两个世界的命运。</p>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="footer">
+            <p>文天玩 © 2025 版权所有</p>
+            <p>电话: 173-0728-4633 | 邮箱: op@wentianplay.top</p>
+        </div>
+    </div>
+
+    <script>
+        // 段落悬停效果增强
+        document.querySelectorAll('.news-content p').forEach(p => {
+            p.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 15px rgba(50, 205, 50, 0.5)';
+            });
+
+            p.addEventListener('mouseleave', function() {
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // 徽标悬浮动画
+        const logo = document.querySelector('.logo');
+        logo.style.animation = 'float 3s ease-in-out infinite';
+
+        // 页面加载后的效果
+        window.addEventListener('load', function() {
+            document.body.style.opacity = 1;
+            setTimeout(() => {
+                document.querySelector('.news-title').style.textShadow = 
+                    '0 0 10px rgba(50, 205, 50, 0.8), 0 0 20px rgba(50, 205, 50, 0.6)';
+            }, 500);
+
+            // 价格标签动画效果
+            const priceTags = document.querySelectorAll('.price-tag');
+            priceTags.forEach(tag => {
+                tag.addEventListener('mouseover', function() {
+                    this.style.transform = 'scale(1.1)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                tag.addEventListener('mouseout', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
